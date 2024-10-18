@@ -1,10 +1,12 @@
-import './App.css';
-import LoginForm from './components/LoginForm/LoginForm';
-
+import SideBar from "./components/SideBar";
+import MainDashboard from "./components/UsersDashboard/MainDashboard";
+import LoginForm from "./components/LoginForm/LoginForm";
 function App() {
   return (
-    <div className="App">
-     <LoginForm/>
+    <div className="px-1 font-Poppins flex">
+      <SideBar />
+      <MainDashboard />
+      <LoginForm />
     </div>
   );
 }
