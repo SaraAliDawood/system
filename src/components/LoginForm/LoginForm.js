@@ -244,7 +244,7 @@
 
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -252,8 +252,17 @@ function LoginForm() {
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSignUpMode, setIsSignUpMode] = useState(false);
+  const [usersList, setUsersList] = useState(() => {
+    const storedUsers = localStorage.getItem('storedUsers');
+    return storedUsers ? JSON.parse(storedUsers) : [];
+  });
 
-  const handleSubmit = async (e) => {
+  const generateToken = () => {
+    return Math.random().toString(36).substr(2);
+  };
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
 
     const isExist = usersList.some((user) => user.email === username);
@@ -269,7 +278,6 @@ function LoginForm() {
     }
   };
 
-  // Handle login by checking localStorage
   const handleLogin = (e) => {
     e.preventDefault();
     setIsLoading(true);
