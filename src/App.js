@@ -1,3 +1,4 @@
+
 import "./App.css";
 import SigninComp from "./components/signingForms/SigninComp";
 import SinginUser from "./components/signingForms/SigninUser";
@@ -41,8 +42,8 @@ function App() {
     <div className="font-Poppins">
       <Router>
         <Routes>
-          <Route path="/signup" element={<SignupComp />} />
-          <Route path="/" element={<SigninComp />} />
+        <Route path="/" element={<AdminSignIn />} />
+        <Route path="/user-login" element={<UserSignIn />} />
           <Route
             path="/mainDashboard"
             element={<MainDashboard adminData={adminData} />}
@@ -57,7 +58,14 @@ function App() {
         </Routes>
       </Router>
     </div>
+
+
+
+
+
+
   );
 }
 
 export default App;
+
